@@ -1,0 +1,88 @@
+create table przetwory(
+dodatek varchar(60) default ("papryczka chilli"),
+id_przetworu int auto_increment PRIMARY KEY,
+rok_produkcji smallint default(1654),
+foreign key(id_wykonawcy),
+zawartosc text,
+references postac(id_postaci),
+
+);
+#zadanie 5
+insert into postac   ;
+
+create table statek  ;
+
+insert into statek   ;
+
+alter title postac and column funkcja  ;
+
+update postac set..where...  ;
+#dodajemy kolumnę która posłuży jako kolumna klucza obcego do tabeli statek
+alter table postac add column statek varchar(60) ;
+#dodajemy klucz obcy
+alter table postac add foreign key..  ;
+
+update postac set statek=.. where... ;
+
+delete from izba where ....;
+
+drop table izba;
+
+
+create table przetwory(
+dodatek varchar(60) default ("papryczka chilli"),
+id_przetworu int auto_increment PRIMARY KEY,
+rok_produkcji smallint default(1654),
+foreign key(id_wykonawcy),
+zawartosc text,
+references postac(id_postaci),
+
+);
+create table izba(
+adres_budynku varchar(60) PRIMARY KEY,
+nazwa_izby varchar(60) PRIMARY KEY,
+metraz int unsigned);
+insert into izba values
+("Wojska Polskiego 6", "spiżarnia", 15);
+
+create table postac(
+id_postaci int auto_increment primary key,
+nazwa varchar(40) not null,
+rodzaj enum("wiking", "ptak", "kobieta"),
+data_ur date,
+wiek int unsigned
+);
+insert into postac values
+("Bjorn", "wiking", "1990-08-31", 33),
+("Drozd", "ptak", "2003-06-09", 20),
+("Tesciowa", "kobieta","1945-05-05", 88);
+insert into postac values
+(default, "Astrid", "wiking", "2005-02-20", 18),
+(default, "olaf", "wiking", "2010-03-10", 13),
+(default, "Ragnar", "wiking", "2001-10-30", 22),
+(default, "Ivar", "wiking", "1999-01-12", 24),
+(default, "Thor", "wiking", "1980-05-10", 43);
+
+create table statek(
+nazwa_statku varchar(60) primary key,
+rodzaj_statku enum("galeon", "fregata"),
+data_wodowania date,
+max_ladownosc int unsigned);
+insert into statek values
+("czarna perła", "galeon", "16-11-2015", 15),
+("xpp", "fregata", "15-10-2019", 45);
+select * from statek;
+select * from postac;
+update postac set statek= "fregata" where nazwa = Bjorn
+alter title postac and column(funkcja)varchar(60);
+delete from izba where spiżarnia;
+drop table izba;
+delete from postac 
+where rodzaj = "wiking" 
+and nazwa <> "Bjorn"
+order by data_ur asc limit 2;
+
+describe postac;
+alter table postac change id_postaci id_postaci int;
+alter table postac modify id_postaci int;
+alter table postac drop primary key;
