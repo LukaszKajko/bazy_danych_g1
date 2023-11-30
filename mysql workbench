@@ -147,5 +147,38 @@ create table zwierz select id_postaci, nazwa, wiek from postac;
 #f 
 insert into zwierz select * from postac 
 where rodzaj=('wąż', 'ptak');
+#lab06
+create table kreatura as select * from wikingowie.kreatura;
+create table zasob as select * from wikingowie.zasob;
+create table ekwipunek as select * from wikingowie.ekwipunek;
+desc kreatura;
+SELECT * FROM kreatura;
+SELECT * FROM zasob;
+SELECT * FROM zasob WHERE rodzaj="jedzenie";
+SELECT idZasobu, ilosc FROM ekwipunek WHERE idKreatury IN (1,2,3);
+SELECT * FROM kreatura WHERE NOT nazwa="wiedzma" AND udzwig>=50;
+SELECT * FROM zasob WHERE waga between "2" AND "5";
+SELECT * FROM kreatura WHERE nazwa='%or%' AND udzwig between "30" AND "70";
+SELECT * FROM zasob where MONTH(dataPozyskania) between 07 and 08;
+SELECT * FROM zasob ORDER BY rodzaj;
+SELECT * FROM kreatura ORDER BY dataUR DESC LIMIT 5;
+SELECT distinct rodzaj FROM zasob; #nie powtarzają się rodzaje, unikalość
+SELECT distinct(rodzaj) FROM kreatura;
+SELECT nazwa, ilosc, rodzaj FROM zasob WHERE rodzaj='jedzenie' and ilosc=1;
+SELECT concat('Ala', 'ma', 'kota');   #złączanie wartości
+SELECT concat(nazwa, 'to', 'id', idKreatury);
+SELECT rodzaj, nazwa FROM kreatura WHERE rodzaj LIKE 'wi%'; #pokazuje tylko rodzaje zaczynające się na "wi"
+SELECT (ilosc * waga) FROM zasob
+where year(dataPozyskania)
+between 2000 and 2007;
+SELECT SUM((ilosc * waga) * 0.3) FROM zasob
+where year(dataPozyskania)
+between 2000 and 2007;
+SELECT SUM((ilosc * waga) * 0.7) FROM zasob
+where year(dataPozyskania)
+between 2000 and 2007;
+
+SELECT * FROM zasob WHERE rodzaj IS NULL; #wyświetla tylko puste
+SELECT * FROM zasob WHERE nazwa LIKE 'Ba%' OR nazwa LIKE'%os' ORDER BY nazwa ASC;
 
 
