@@ -1,6 +1,5 @@
-
+#zadanie 5
 ```sql
-**zadanie 5**
 
 insert into postac   ;
 
@@ -82,13 +81,13 @@ alter table postac modify id_postaci int;
 alter table postac drop primary key;
 
 show create table postac;
-**#zadanie 2**
+#zadanie 2
 alter table postac add column pesel char(11) first;
 alter table postac add primary key(pesel);
 select * from postac;
 update postac set pesel= '13563847543' + id_postaci;
 select '13563847543' + id_postaci from postac;
-**#zad2 punkt.b **
+#zad2 punkt.b 
 alter table postac modify rodzaj enum("wiking", "ptak", "kobieta", "syrena");
 insert into postac values
 ( "45829371839", 4, "Gertruda Nieszczera", "syrena", "1890-03-03", 133);
@@ -107,7 +106,7 @@ update statek
 set max_ladownosc = max_ladownosc * 0,7
 where year(data_wodowania)
 between 1901 and 2000;
-**#zad 3 c **
+#zad 3 c
 #instrukcja check 
 alter table postac add check (wiek <= 1000);
 update postac set wiek = 2000 where nazwa='Bjorn';
@@ -125,15 +124,15 @@ insert into marynarz select * from postac
 where statek is not null;
 select* from marynarz;
 alter table marynarz modify statek foreign key references to statek;
-#opcja nr2
+##opcja nr2
 create table marynarz3 as select * from postac
 where statek is not null;
 
-#update statek null
-#
-#usnac statki
-#drop statek
-#insert into select(nazwa,wiek,liczba)
+update statek null
+
+usnac statki
+drop statek
+insert into select(nazwa,wiek,liczba)
 #a 
 update marynarz set nazwa_statku= null where id_postaci=1, 2, 3, 4, 5;
 #b 
