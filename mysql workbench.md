@@ -1,7 +1,7 @@
 
 ```sql
 );
-#zadanie 5
+**#zadanie 5**
 insert into postac   ;
 
 create table statek  ;
@@ -82,13 +82,13 @@ alter table postac modify id_postaci int;
 alter table postac drop primary key;
 
 show create table postac;
-#zadanie 2
+**#zadanie 2**
 alter table postac add column pesel char(11) first;
 alter table postac add primary key(pesel);
 select * from postac;
 update postac set pesel= '13563847543' + id_postaci;
 select '13563847543' + id_postaci from postac;
-#zad2 punkt.b 
+**#zad2 punkt.b **
 alter table postac modify rodzaj enum("wiking", "ptak", "kobieta", "syrena");
 insert into postac values
 ( "45829371839", 4, "Gertruda Nieszczera", "syrena", "1890-03-03", 133);
@@ -107,7 +107,7 @@ update statek
 set max_ladownosc = max_ladownosc * 0,7
 where year(data_wodowania)
 between 1901 and 2000;
-#zad 3 c 
+**#zad 3 c **
 #instrukcja check 
 alter table postac add check (wiek <= 1000);
 update postac set wiek = 2000 where nazwa='Bjorn';
