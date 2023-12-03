@@ -81,13 +81,17 @@ alter table postac modify id_postaci int;
 alter table postac drop primary key;
 
 show create table postac;
-#zadanie 2
+```
+# zadanie 2
+```sql
 alter table postac add column pesel char(11) first;
 alter table postac add primary key(pesel);
 select * from postac;
 update postac set pesel= '13563847543' + id_postaci;
 select '13563847543' + id_postaci from postac;
-#zad2 punkt.b 
+```
+# zad2 punkt.b 
+```sql
 alter table postac modify rodzaj enum("wiking", "ptak", "kobieta", "syrena");
 insert into postac values
 ( "45829371839", 4, "Gertruda Nieszczera", "syrena", "1890-03-03", 133);
@@ -106,7 +110,9 @@ update statek
 set max_ladownosc = max_ladownosc * 0,7
 where year(data_wodowania)
 between 1901 and 2000;
+```
 #zad 3 c
+```sql
 #instrukcja check 
 alter table postac add check (wiek <= 1000);
 update postac set wiek = 2000 where nazwa='Bjorn';
@@ -115,7 +121,9 @@ update postac set wiek = 2000 where nazwa='Bjorn';
 alter table postac modify rodzaj enum("wiking", "ptak", "kobieta", "syrena", "wąż");
 insert into postac values
 ( "99929371839", 5, "Loko", "wąż", "2005-05-05", 18);
-#zad4 b 
+```
+# zad4 b
+```sql
 create table marynarz like postac;
 create table marynarz2
 select pesel, nazwa, rodzaj from postac;
@@ -124,7 +132,9 @@ insert into marynarz select * from postac
 where statek is not null;
 select* from marynarz;
 alter table marynarz modify statek foreign key references to statek;
-##opcja nr2
+```
+## opcja nr2
+```sql
 create table marynarz3 as select * from postac
 where statek is not null;
 
@@ -133,20 +143,32 @@ update statek null
 usnac statki
 drop statek
 insert into select(nazwa,wiek,liczba)
-#a 
+```
+## a
+```sql
 update marynarz set nazwa_statku= null where id_postaci=1, 2, 3, 4, 5;
-#b 
+```
+## b 
+```sql
 drop table postac where nazwa = 'olaf';
-#c 
+```
+## c 
 
-#d 
+## d 
+```sql
 drop table statek;
-#e
+```
+## e
+```sql
 create table zwierz select id_postaci, nazwa, wiek from postac;
-#f 
+```
+##f 
+```sql
 insert into zwierz select * from postac 
 where rodzaj=('wąż', 'ptak');
+```
 #lab06
+```sql
 create table kreatura as select * from wikingowie.kreatura;
 create table zasob as select * from wikingowie.zasob;
 create table ekwipunek as select * from wikingowie.ekwipunek;
@@ -179,5 +201,6 @@ between 2000 and 2007;
 
 SELECT * FROM zasob WHERE rodzaj IS NULL; #wyświetla tylko puste
 SELECT * FROM zasob WHERE nazwa LIKE 'Ba%' OR nazwa LIKE'%os' ORDER BY nazwa ASC;
+
 ```
 
