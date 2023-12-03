@@ -111,7 +111,7 @@ set max_ladownosc = max_ladownosc * 0,7
 where year(data_wodowania)
 between 1901 and 2000;
 ```
-#zad 3 c
+# zad 3 c
 ```sql
 #instrukcja check 
 alter table postac add check (wiek <= 1000);
@@ -162,12 +162,12 @@ drop table statek;
 ```sql
 create table zwierz select id_postaci, nazwa, wiek from postac;
 ```
-##f 
+## f 
 ```sql
 insert into zwierz select * from postac 
 where rodzaj=('wąż', 'ptak');
 ```
-#lab06
+# lab06
 ```sql
 create table kreatura as select * from wikingowie.kreatura;
 create table zasob as select * from wikingowie.zasob;
