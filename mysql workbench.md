@@ -21,7 +21,7 @@ update postac set statek=.. where... ;
 delete from izba where ....;
 
 drop table izba;
-```
+
 
 create table przetwory(
 dodatek varchar(60) default ("papryczka chilli"),
@@ -180,5 +180,5 @@ between 2000 and 2007;
 
 SELECT * FROM zasob WHERE rodzaj IS NULL; #wyświetla tylko puste
 SELECT * FROM zasob WHERE nazwa LIKE 'Ba%' OR nazwa LIKE'%os' ORDER BY nazwa ASC;
-
+```
 
