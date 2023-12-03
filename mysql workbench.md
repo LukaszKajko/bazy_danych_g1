@@ -1,7 +1,7 @@
 
 ```sql
-);
 **zadanie 5**
+
 insert into postac   ;
 
 create table statek  ;
