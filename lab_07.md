@@ -32,7 +32,8 @@ SELECT rodzaj, count(distinct (nazwa)) from zasob group by rodzaj having count(*
 # 3.a
 ```sql
 SELECT * FROM kreatura, ekwipunek WHERE kreatura.idKreatury=ekwipunek.idKreatury;
-SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k inner join ekwipunek e on k.idKreatury=e.idKreatury inner join zasob z on e.idZasobu=z.idZasobu;
+SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k inner join ekwipunek e on k.idKreatury=e.idKreatury
+inner join zasob z on e.idZasobu=z.idZasobu;
 ```
 # 3.b
 ```sql
@@ -40,7 +41,9 @@ SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.i
 ```
 # 3.c
 ```sql
-SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury where e.idKreatury is null; #left join - warunek z null
-SELECT idKreatury FROM kreatura WHERE idKreatury not in (SELECT distinct idKreatury FROM ekwipunek WHERE idKreatury is not null);
+SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury
+ where e.idKreatury is null; #left join - warunek z null
+SELECT idKreatury FROM kreatura WHERE idKreatury
+not in (SELECT distinct idKreatury FROM ekwipunek WHERE idKreatury is not null);
 ```
 
