@@ -1,6 +1,7 @@
 ##avg(), sum(), min(), max(), count()
 ##group by
 ##having - określa dodatkowy warunek filtrowania
+
 #1.a
 ```sql
 SELECT SUM(waga) FROM kreatura WHERE  rodzaj='wiking';
