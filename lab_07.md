@@ -5,7 +5,8 @@
 ```sql
 SELECT SUM(waga) FROM kreatura WHERE  rodzaj='wiking';
 ```
-#1.b  ```sql
+#1.b
+```sql
 SELECT SUM(waga)/SUM(rodzaj='wiking') FROM kreatura WHERE  rodzaj='wiking';
 SELECT * FROM kreatura order by rodzaj;
 SELECT rodzaj, count(*) FROM kreatura GROUP BY rodzaj;
