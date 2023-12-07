@@ -29,3 +29,18 @@ SELECT avg(waga) FROM zasob WHERE ilosc > 4 group by rodzaj having SUM(waga) > 1
 SELECT avg(waga) FROM zasob WHERE ilosc > 4 group by rodzaj having count(*) > 1;
 SELECT rodzaj, count(distinct (nazwa)) from zasob group by rodzaj having count(*) > 1;
 ```
+# 3.a
+```sql
+SELECT * FROM kreatura, ekwipunek WHERE kreatura.idKreatury=ekwipunek.idKreatury;
+SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k inner join ekwipunek e on k.idKreatury=e.idKreatury inner join zasob z on e.idZasobu=z.idZasobu;
+```
+# 3.b
+```sql
+SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury;
+```
+# 3.c
+```sql
+SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury where e.idKreatury is null; #left join - warunek z null
+SELECT idKreatury FROM kreatura WHERE idKreatury not in (SELECT distinct idKreatury FROM ekwipunek WHERE idKreatury is not null);
+```
+
