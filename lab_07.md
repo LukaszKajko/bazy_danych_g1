@@ -46,4 +46,13 @@ SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.i
 SELECT idKreatury FROM kreatura WHERE idKreatury
 not in (SELECT distinct idKreatury FROM ekwipunek WHERE idKreatury is not null);
 ```
-
+# 4.a 
+```sql
+SELECT * FROM kreatura NATURAL JOIN ekwipunek;
+```
+# 4.b 
+```sql
+SELECT k.nazwa, k.dataUR, z.rodzaj FROM  kreatura k inner join ekwipunek e on k.idKreatury=e.idKreatury
+inner join zasob z on e.idZasobu=z.idZasobu
+where z.rodzaj ='jedzenie' order by k.dataUr desc limit 5;
+```
