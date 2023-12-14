@@ -56,3 +56,21 @@ SELECT k.nazwa, k.dataUR, z.rodzaj FROM  kreatura k inner join ekwipunek e on k.
 inner join zasob z on e.idZasobu=z.idZasobu
 where z.rodzaj ='jedzenie' order by k.dataUr desc limit 5;
 ```
+## określanie niezbędnych kolumn
+## koreślanie filtrów (where)
+## pozostałe (having, order by, limit)
+# 4.c
+```sql
+select concat(k1.nazwa,'-',k2.nazwa) FROM kreatura k1 inner join kreatura k2 on k1.idKreatury-k2.idKreatury = 5;
+```
+# 5.a
+```sql
+SELECT k.rodzaj, avg(e.ilosc * z.waga) FROM  kreatura k inner join ekwipunek e on k.idKreatury=e.idKreatury
+inner join zasob z on e.idZasobu=z.idZasobu
+where k.rodzaj not in ('małpa', 'wąż') and e.ilosc < 30
+group by k.rodzaj;
+```
+# 5.b
+```sql
+SELECT rodzaj, min(dataUr) najmłodsza, max(dataUr) najstarsza from kreatura group by rodzaj;
+```
