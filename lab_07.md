@@ -37,7 +37,7 @@ inner join zasob z on e.idZasobu=z.idZasobu;
 ```
 # 3.b
 ```sql
-SELECT k.nazwa, e.idZasobu, e.ilosc FROM kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury;
+SELECT k.nazwa, e.idZasobu, e.nazwa FROM kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury inner join zasob z on e.idZasobu=z.idZasobu;
 ```
 # 3.c
 ```sql
