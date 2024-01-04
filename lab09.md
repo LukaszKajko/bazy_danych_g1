@@ -2,6 +2,7 @@
 ## INSERT UPDATE DELETE
 ## NEW -> INSERT, UPDATE
 ## OLD-> UPDATE, DELETE
+# 1
 ```mysql
 DELIMITER //
 CREATE TRIGGER kreatura_before_insert 
