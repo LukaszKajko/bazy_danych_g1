@@ -17,3 +17,16 @@ END
 //
 DELIMITER;
 ```
+```mysql
+# 2
+SELECT w.id_wyprawy, w.nazwa, w.data_rozpoczecia, w.data_zakonczenia, k.nazwa
+FROM wyprawa w inner join kreatura k on k.idKreatury=w.kierownik
+WHERE id_wyprawy=1;
+BEFORE DELETE ON wyprawa 
+FOR EACH ROW
+BEGIN;
+
+SHOW TRIGGERS;
+SHOW CREATE TRIGGER nazwa;
+DROP TRIGGER nazwa;
+```
